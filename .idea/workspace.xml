@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f6cd5b7e-e9c1-4d7a-b481-edfc40207331" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gMiEbMv8mEQgMRvvqXbIkEBFFZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.nyble.topics.consumer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.BitwiseFlagTester">
+    <configuration name="BitwiseFlagTester" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NybleKafkaModels" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BitwiseFlagTester" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConsumerActionSerialization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NybleKafkaModels" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConsumerActionSerialization" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConsumerActionSerialization.test_serializeEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NybleKafkaModels" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConsumerActionSerialization" />
+      <option name="METHOD_NAME" value="test_serializeEmpty" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConsumerActionSerialization.test_serializeNormal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NybleKafkaModels" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConsumerActionSerialization" />
+      <option name="METHOD_NAME" value="test_serializeNormal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConsumerSerialization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NybleKafkaModels" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConsumerSerialization" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="install" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BitwiseFlagTester" />
+        <item itemvalue="JUnit.TestConsumerSerialization" />
+        <item itemvalue="JUnit.TestConsumerActionSerialization.test_serializeNormal" />
+        <item itemvalue="JUnit.TestConsumerActionSerialization" />
+        <item itemvalue="JUnit.TestConsumerActionSerialization.test_serializeEmpty" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6cd5b7e-e9c1-4d7a-b481-edfc40207331" name="Default Changelist" comment="" />
+      <created>1597930751492</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597930751492</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="833" y="214" width="847" height="677" key="#Project_Structure" timestamp="1597931018489">
+      <screen x="0" y="30" width="1680" height="1050" />
+    </state>
+    <state x="833" y="214" width="847" height="677" key="#Project_Structure/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1597931018489" />
+    <state x="596" y="210" width="1084" height="777" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597931868505">
+      <screen x="0" y="30" width="1680" height="1050" />
+    </state>
+    <state x="596" y="210" width="1084" height="777" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1597931868505" />
+    <state x="402" y="170" width="1366" height="723" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1604064292841">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state x="402" y="170" width="1366" height="723" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/67.27.3773.1053@67.27.3773.1053" timestamp="1604064292841" />
+    <state x="2686" y="269" width="544" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1604062709189">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state x="2499" y="269" key="#com.intellij.ide.util.MemberChooser/0.27.3600.1053@0.27.3600.1053" timestamp="1599382872514" />
+    <state x="1166" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1598547692368" />
+    <state x="3013" y="248" key="#com.intellij.ide.util.MemberChooser/1680.0.1920.1080/0.30.1680.1050@1680.0.1920.1080" timestamp="1597935436550" />
+    <state x="2686" y="269" width="544" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.3773.1053@67.27.3773.1053" timestamp="1604062709189" />
+    <state x="432" y="263" key="#xdebugger.evaluate" timestamp="1604062637142">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state x="432" y="263" key="#xdebugger.evaluate/67.27.3773.1053@67.27.3773.1053" timestamp="1604062637142" />
+    <state width="457" height="466" key="DebuggerActiveHint" timestamp="1604062122740">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state width="457" height="466" key="DebuggerActiveHint/67.27.3773.1053@67.27.3773.1053" timestamp="1604062122740" />
+    <state width="1520" height="226" key="GridCell.Tab.0.bottom" timestamp="1604064540072">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state width="1520" height="226" key="GridCell.Tab.0.bottom/0.27.3600.1053@0.27.3600.1053" timestamp="1602421957950" />
+    <state width="1396" height="214" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1600791962962" />
+    <state width="1396" height="214" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.30.1680.1050@1680.0.1920.1080" timestamp="1598030793288" />
+    <state width="1520" height="226" key="GridCell.Tab.0.bottom/67.27.3773.1053@67.27.3773.1053" timestamp="1604064540072" />
+    <state width="1396" height="214" key="GridCell.Tab.0.bottom/67.27.5693.1053@67.27.5693.1053" timestamp="1600795571159" />
+    <state width="1520" height="226" key="GridCell.Tab.0.center" timestamp="1604064540072">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state width="1520" height="226" key="GridCell.Tab.0.center/0.27.3600.1053@0.27.3600.1053" timestamp="1602421957947" />
+    <state width="1396" height="214" key="GridCell.Tab.0.center/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1600791962961" />
+    <state width="1396" height="214" key="GridCell.Tab.0.center/1680.0.1920.1080/0.30.1680.1050@1680.0.1920.1080" timestamp="1598030793288" />
+    <state width="1520" height="226" key="GridCell.Tab.0.center/67.27.3773.1053@67.27.3773.1053" timestamp="1604064540072" />
+    <state width="1396" height="214" key="GridCell.Tab.0.center/67.27.5693.1053@67.27.5693.1053" timestamp="1600795571157" />
+    <state width="1520" height="226" key="GridCell.Tab.0.left" timestamp="1604064540072">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state width="1520" height="226" key="GridCell.Tab.0.left/0.27.3600.1053@0.27.3600.1053" timestamp="1602421957946" />
+    <state width="1396" height="214" key="GridCell.Tab.0.left/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1600791962961" />
+    <state width="1396" height="214" key="GridCell.Tab.0.left/1680.0.1920.1080/0.30.1680.1050@1680.0.1920.1080" timestamp="1598030793288" />
+    <state width="1520" height="226" key="GridCell.Tab.0.left/67.27.3773.1053@67.27.3773.1053" timestamp="1604064540072" />
+    <state width="1396" height="214" key="GridCell.Tab.0.left/67.27.5693.1053@67.27.5693.1053" timestamp="1600795571156" />
+    <state width="1520" height="226" key="GridCell.Tab.0.right" timestamp="1604064540072">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state width="1520" height="226" key="GridCell.Tab.0.right/0.27.3600.1053@0.27.3600.1053" timestamp="1602421957949" />
+    <state width="1396" height="214" key="GridCell.Tab.0.right/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1600791962962" />
+    <state width="1396" height="214" key="GridCell.Tab.0.right/1680.0.1920.1080/0.30.1680.1050@1680.0.1920.1080" timestamp="1598030793288" />
+    <state width="1520" height="226" key="GridCell.Tab.0.right/67.27.3773.1053@67.27.3773.1053" timestamp="1604064540072" />
+    <state width="1396" height="214" key="GridCell.Tab.0.right/67.27.5693.1053@67.27.5693.1053" timestamp="1600795571158" />
+    <state width="1520" height="281" key="GridCell.Tab.1.bottom" timestamp="1604063602277">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state width="1520" height="281" key="GridCell.Tab.1.bottom/67.27.3773.1053@67.27.3773.1053" timestamp="1604063602277" />
+    <state width="1520" height="281" key="GridCell.Tab.1.center" timestamp="1604063602277">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state width="1520" height="281" key="GridCell.Tab.1.center/67.27.3773.1053@67.27.3773.1053" timestamp="1604063602277" />
+    <state width="1520" height="281" key="GridCell.Tab.1.left" timestamp="1604063602277">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state width="1520" height="281" key="GridCell.Tab.1.left/67.27.3773.1053@67.27.3773.1053" timestamp="1604063602277" />
+    <state width="1520" height="281" key="GridCell.Tab.1.right" timestamp="1604063602277">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state width="1520" height="281" key="GridCell.Tab.1.right/67.27.3773.1053@67.27.3773.1053" timestamp="1604063602277" />
+    <state x="2262" y="278" width="710" height="538" key="find.popup" timestamp="1604053804800">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state x="2262" y="278" width="710" height="538" key="find.popup/67.27.3773.1053@67.27.3773.1053" timestamp="1604053804800" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/nyble/topics/consumer/ConsumerValue.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
