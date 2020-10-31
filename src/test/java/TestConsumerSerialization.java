@@ -1,6 +1,8 @@
 import com.nyble.models.consumer.Consumer;
+import com.nyble.topics.TopicObjectsFactory;
 import com.nyble.topics.consumer.ChangedProperty;
 import com.nyble.topics.consumer.ConsumerValue;
+import com.nyble.topics.consumerActions.ConsumerActionsValue;
 import junit.framework.TestCase;
 
 public class TestConsumerSerialization extends TestCase {
@@ -12,8 +14,9 @@ public class TestConsumerSerialization extends TestCase {
                 "\"consumerId\":{\"value\":\"8464397\",\"lut\":\"1601240400000\"},\"affinity_125\":" +
                 "{\"value\":\"0\",\"lut\":\"1601240400000\"},\"affinity_117\":{\"value\":\"0\",\"lut\":\"1601240400000\"}}," +
                 "\"changedProperty\":{\"propertyName\":\"fullName\"}}";
-        final ConsumerValue cv = ConsumerValue.fromJson(jsonRep);
+        final ConsumerValue cv = (ConsumerValue) TopicObjectsFactory.fromJson(jsonRep, ConsumerValue.class);
 
+        assertNotNull(cv);
         final Consumer c = cv.getConsumer();
         final ChangedProperty cp = cv.getChangedProperty();
 

@@ -1,10 +1,13 @@
 package com.nyble.topics.consumerActions;
 
-public class ConsumerActionsKey {
+import com.nyble.topics.JsonSerDes;
+import com.nyble.topics.TopicObjectsFactory;
+
+public class ConsumerActionsKey implements JsonSerDes {
     private Integer systemId;
     private Integer consumerId;
 
-    public ConsumerActionsKey(Integer systemId, Integer consumerId) {
+    public ConsumerActionsKey(Integer systemId, Integer consumerId){
         this.systemId = systemId;
         this.consumerId = consumerId;
     }
@@ -23,5 +26,10 @@ public class ConsumerActionsKey {
 
     public void setConsumerId(Integer consumerId) {
         this.consumerId = consumerId;
+    }
+
+    @Override
+    public String toJson() {
+        return TopicObjectsFactory.getGson().toJson(this);
     }
 }

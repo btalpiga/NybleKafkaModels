@@ -1,6 +1,9 @@
 package com.nyble.topics.consumer;
 
-public class ConsumerKey {
+import com.nyble.topics.JsonSerDes;
+import com.nyble.topics.TopicObjectsFactory;
+
+public class ConsumerKey implements JsonSerDes {
 
     private Integer systemId;
     private Integer consumerId;
@@ -34,5 +37,10 @@ public class ConsumerKey {
                 "systemId=" + systemId +
                 ", consumerId=" + consumerId +
                 '}';
+    }
+
+    @Override
+    public String toJson() {
+        return TopicObjectsFactory.getGson().toJson(this);
     }
 }

@@ -1,6 +1,9 @@
 package com.nyble.topics.consumerAttributes;
 
-public class ConsumerAttributesValue {
+import com.nyble.topics.JsonSerDes;
+import com.nyble.topics.TopicObjectsFactory;
+
+public class ConsumerAttributesValue implements JsonSerDes {
 
     private String systemId;
     private String consumerId;
@@ -78,5 +81,10 @@ public class ConsumerAttributesValue {
                 ", externalSystemDate='" + externalSystemDate + '\'' +
                 ", localSystemDate='" + localSystemDate + '\'' +
                 '}';
+    }
+
+    @Override
+    public String toJson() {
+        return TopicObjectsFactory.getGson().toJson(this);
     }
 }

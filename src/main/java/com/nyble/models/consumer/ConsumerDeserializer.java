@@ -5,7 +5,7 @@ import com.google.gson.*;
 import java.lang.reflect.Type;
 import java.util.Map;
 
-public class ConsumerAdapter implements JsonDeserializer<Consumer> {
+public class ConsumerDeserializer implements JsonDeserializer<Consumer> {
     @Override
     public Consumer deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         Consumer c = new Consumer();

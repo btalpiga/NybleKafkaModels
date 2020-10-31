@@ -1,15 +1,11 @@
 package com.nyble.topics.consumer;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import com.nyble.models.consumer.Consumer;
-import com.nyble.models.consumer.ConsumerAdapter;
+import com.nyble.topics.JsonSerDes;
+import com.nyble.topics.TopicObjectsFactory;
 
-import java.lang.reflect.Type;
 
-
-public class ConsumerValue {
+public class ConsumerValue implements JsonSerDes {
 
     private Consumer consumer;
     private ChangedProperty changedProperty;
@@ -35,7 +31,9 @@ public class ConsumerValue {
         this.changedProperty = changedProperty;
     }
 
-    public static ConsumerValue fromJson(String jsonRep){
-        return Consumer.getConsumerGson().fromJson(jsonRep, ConsumerValue.class);
+
+    @Override
+    public String toJson() {
+        return TopicObjectsFactory.getGson().toJson(this);
     }
 }

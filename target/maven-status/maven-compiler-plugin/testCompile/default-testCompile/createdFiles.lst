@@ -1,1 +1,4 @@
+TestSerializeDeserialize.class
 BitwiseFlagTester.class
+TestConsumerActionSerialization.class
+TestConsumerSerialization.class

@@ -1,36 +1,28 @@
 package com.nyble.models.consumer;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.nyble.topics.consumer.ConsumerValue;
+import com.nyble.topics.JsonSerDes;
+import com.nyble.topics.TopicObjectsFactory;
 
-import java.lang.reflect.Type;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
-public class Consumer {
+public class Consumer implements JsonSerDes {
 
-    private static final GsonBuilder gsonBuilder = new GsonBuilder();
-    private static Gson localGson;
-    private static final Type consumerType = new TypeToken<Consumer>(){}.getType();
-    static{
-        localGson = gsonBuilder.registerTypeAdapter(consumerType, new ConsumerAdapter()).create();
-    }
-
-    public static Gson getConsumerGson(){
-        return localGson;
-    }
-
-    public static Consumer fromJson(String jsonRep){
-        return localGson.fromJson(jsonRep, Consumer.class);
+    @Override
+    public String toJson(){
+        return TopicObjectsFactory.getGson().toJson(this);
     }
 
     private Map<String, CAttribute> attributes = new HashMap<>();
 
     public void setProperty(String consumerProp, CAttribute attribute) {
         attributes.put(consumerProp, attribute);
+    }
+
+    public boolean hasProperty(String consumerProp){
+        return attributes.containsKey(consumerProp);
     }
 
     public String getValue(String attributeName){
@@ -87,6 +79,10 @@ public class Consumer {
         int flagNumeric = (flagsAttribute.getValue()!=null && !flagsAttribute.getValue().isEmpty()) ?
                 Integer.parseInt(flagsAttribute.getValue()) : 0;
         return (flagNumeric & (1<<flag.getBitPosition())) != 0;
+    }
+
+    public Set<Map.Entry<String, CAttribute>> getAllProperties(){
+        return this.attributes.entrySet();
     }
 
 //    private String firstName;
