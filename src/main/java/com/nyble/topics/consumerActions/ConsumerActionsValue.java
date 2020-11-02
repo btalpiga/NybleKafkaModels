@@ -4,6 +4,8 @@ import com.google.gson.annotations.Expose;
 import com.nyble.topics.JsonSerDes;
 import com.nyble.topics.TopicObjectsFactory;
 
+import java.util.Objects;
+
 public class ConsumerActionsValue implements JsonSerDes {
 
     private String id;
@@ -91,6 +93,24 @@ public class ConsumerActionsValue implements JsonSerDes {
         return TopicObjectsFactory.getGson().toJson(this);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ConsumerActionsValue)) return false;
+        ConsumerActionsValue that = (ConsumerActionsValue) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(actionId, that.actionId) &&
+                Objects.equals(consumerId, that.consumerId) &&
+                Objects.equals(systemId, that.systemId) &&
+                Objects.equals(payloadJson, that.payloadJson) &&
+                Objects.equals(externalSystemDate, that.externalSystemDate) &&
+                Objects.equals(localSystemDate, that.localSystemDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, actionId, consumerId, systemId, payloadJson, externalSystemDate, localSystemDate);
+    }
 
     public static class ConsumerActionsPayload {
 
@@ -138,6 +158,29 @@ public class ConsumerActionsValue implements JsonSerDes {
             this.touchpointId = touchpointId;
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof ConsumerActionsPayload)) return false;
+            ConsumerActionsPayload that = (ConsumerActionsPayload) o;
+            return Objects.equals(subcampaignId, that.subcampaignId) &&
+                    Objects.equals(posId, that.posId) &&
+                    Objects.equals(chanId, that.chanId) &&
+                    Objects.equals(userId, that.userId) &&
+                    Objects.equals(prizeId, that.prizeId) &&
+                    Objects.equals(valGain, that.valGain) &&
+                    Objects.equals(valSpend, that.valSpend) &&
+                    Objects.equals(externalId, that.externalId) &&
+                    Objects.equals(touchpointId, that.touchpointId) &&
+                    Objects.equals(raw, that.raw) &&
+                    Objects.equals(value, that.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(subcampaignId, posId, chanId, userId, prizeId, valGain, valSpend, externalId, touchpointId, raw, value);
+        }
+
         public static class Value{
             public String sku_quantity;
             public String new_value;
@@ -164,6 +207,22 @@ public class ConsumerActionsValue implements JsonSerDes {
                     return Boolean.valueOf(old_value);
                 }
                 return null;
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (!(o instanceof Value)) return false;
+                Value value = (Value) o;
+                return Objects.equals(sku_quantity, value.sku_quantity) &&
+                        Objects.equals(new_value, value.new_value) &&
+                        Objects.equals(old_value, value.old_value) &&
+                        Objects.equals(sku_bought, value.sku_bought);
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(sku_quantity, new_value, old_value, sku_bought);
             }
         }
     }

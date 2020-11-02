@@ -42,6 +42,69 @@ public class TestSerializeDeserialize  extends TestCase {
     }
 
 
+    public void testActionKafkaMessage_2(){
+        final String msg = "{" +
+                "\"id\":659634844," +
+                "\"systemId\":1," +
+                "\"consumerId\":11986763," +
+                "\"actionId\":1778," +
+                "\"payloadJson\":\"{" +
+                    "\\\"posId\\\": null, " +
+                    "\\\"value\\\": {" +
+                        "\\\"code\\\": \\\"LMHN1UCKU\\\", " +
+                        "\\\"platform\\\": \\\"web\\\"" +
+                    "}, " +
+                    "\\\"chanId\\\": \\\"5\\\", " +
+                    "\\\"userId\\\": \\\"0\\\", " +
+                    "\\\"prizeId\\\": null, " +
+                    "\\\"valGain\\\": null, " +
+                    "\\\"valSpend\\\": null, " +
+                    "\\\"externalId\\\": null, " +
+                    "\\\"touchpointId\\\": \\\"2\\\", " +
+                    "\\\"subcampaignId\\\": \\\"5362\\\"" +
+                "}\"," +
+                "\"externalSystemDate\":\"1603652615000\"," +
+                "\"localSystemDate\":\"1603699039951\"}";
+        ConsumerActionsValue deserialized = (ConsumerActionsValue) TopicObjectsFactory
+                .fromJson(msg, ConsumerActionsValue.class);
+        //assert values
+        assertNotNull(deserialized);
+        assertEquals(deserialized.getId(), "659634844");
+        assertEquals(deserialized.getSystemId(), "1");
+        assertEquals(deserialized.getConsumerId(), "11986763");
+        assertEquals(deserialized.getActionId(), "1778");
+        assertEquals(deserialized.getLocalSystemDate(), "1603699039951");
+        assertEquals(deserialized.getExternalSystemDate(), "1603652615000");
+
+        ConsumerActionsValue.ConsumerActionsPayload payload = deserialized.getPayloadJson();
+        assertNotNull(payload);
+        assertEquals(payload.subcampaignId, "5362");
+        assertEquals(payload.chanId, "5");
+        assertEquals(payload.userId, "0");
+        assertNull(payload.valSpend);
+        assertEquals(payload.getRaw(), "{" +
+                "\"posId\": null, " +
+                "\"value\": {" +
+                    "\"code\": \"LMHN1UCKU\", " +
+                    "\"platform\": \"web\"" +
+                "}, " +
+                "\"chanId\": \"5\", " +
+                "\"userId\": \"0\", " +
+                "\"prizeId\": null, " +
+                "\"valGain\": null, " +
+                "\"valSpend\": null, " +
+                "\"externalId\": null, " +
+                "\"touchpointId\": \"2\", " +
+                "\"subcampaignId\": \"5362\"" +
+                "}");
+
+        ConsumerActionsValue.ConsumerActionsPayload.Value actionValue = payload.getValue();
+        assertNotNull(actionValue);
+
+        String serialized = deserialized.toJson();
+        assertNotNull(serialized);
+        assertEquals(deserialized, TopicObjectsFactory.fromJson(serialized, ConsumerActionsValue.class));
+    }
 
     public void testActionKafkaMessage(){
         final String msg = "{\"id\":658221427,\"systemId\":1,\"consumerId\":11462423,\"actionId\":2091,\"payloadJson\":" +
@@ -77,7 +140,7 @@ public class TestSerializeDeserialize  extends TestCase {
 
         String serialized = deserialized.toJson();
         assertNotNull(serialized);
-//        assertEquals(msg, serialized);
+        assertEquals(deserialized, TopicObjectsFactory.fromJson(serialized, ConsumerActionsValue.class));
     }
 
     public void testActionKafkaMessage_null(){

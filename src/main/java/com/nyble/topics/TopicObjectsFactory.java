@@ -10,6 +10,7 @@ import com.nyble.topics.consumer.ConsumerKey;
 import com.nyble.topics.consumer.ConsumerValue;
 import com.nyble.topics.consumerActions.ConsumerActionsKey;
 import com.nyble.topics.consumerActions.ConsumerActionsValue;
+import com.nyble.topics.consumerActions.ConsumerActionSerializer;
 import com.nyble.topics.consumerAttributes.ConsumerAttributesKey;
 import com.nyble.topics.consumerAttributes.ConsumerAttributesValue;
 
@@ -21,10 +22,12 @@ public class TopicObjectsFactory {
     private static Gson localGson;
     static{
         Type consumerType = new TypeToken<Consumer>(){}.getType();
+        Type consumerActionsValueType = new TypeToken<ConsumerActionsValue>(){}.getType();
 
         localGson = gsonBuilder
                 .registerTypeAdapter(consumerType, new ConsumerDeserializer())
                 .registerTypeAdapter(consumerType, new ConsumerSerializer())
+                .registerTypeAdapter(consumerActionsValueType, new ConsumerActionSerializer())
                 .create();
     }
 
