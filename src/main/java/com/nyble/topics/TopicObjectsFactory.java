@@ -8,6 +8,7 @@ import com.nyble.models.consumer.ConsumerDeserializer;
 import com.nyble.models.consumer.ConsumerSerializer;
 import com.nyble.topics.consumer.ConsumerKey;
 import com.nyble.topics.consumer.ConsumerValue;
+import com.nyble.topics.consumerActions.ConsumerActionDeserializer;
 import com.nyble.topics.consumerActions.ConsumerActionsKey;
 import com.nyble.topics.consumerActions.ConsumerActionsValue;
 import com.nyble.topics.consumerActions.ConsumerActionSerializer;
@@ -28,6 +29,7 @@ public class TopicObjectsFactory {
                 .registerTypeAdapter(consumerType, new ConsumerDeserializer())
                 .registerTypeAdapter(consumerType, new ConsumerSerializer())
                 .registerTypeAdapter(consumerActionsValueType, new ConsumerActionSerializer())
+                .registerTypeAdapter(consumerActionsValueType, new ConsumerActionDeserializer())
                 .create();
     }
 
@@ -49,30 +51,48 @@ public class TopicObjectsFactory {
         }
 
         else if(type.equals(ConsumerActionsValue.class)){
-            if(json == null || json.isEmpty()){
-                return null;
-            }
+            return localGson.fromJson(json, ConsumerActionsValue.class);
+//            if(json == null || json.isEmpty()){
+//                return null;
+//            }
+//            int startIdx = json.indexOf("\"{");
+//            String rawConsumerActionJson = null;
+//            if(startIdx >= 0){
+//                int endIdx = json.lastIndexOf("}\"", startIdx) + "}\"".length();
+//                String start = json.substring(0, startIdx);
+//                String end = json.substring(endIdx);
+//                rawConsumerActionJson = json.substring(startIdx, endIdx)
+//                        .replaceAll("[\\\\]+\"", "\"")
+//                        .replaceAll("\"\\{", "{")
+//                        .replaceAll("\\}\"", "}");
+//                json = start+rawConsumerActionJson+end;
+//            }
+//            json = json.replaceAll("[\\\\]+\"", "\"")
+//                    .replaceAll("\"\\{", "{")
+//                    .replaceAll("\\}\"", "}");
 
-            int startIdx = json.indexOf("\"{");
-            String rawConsumerActionJson = null;
-            if(startIdx >= 0){
-                int endIdx = json.indexOf("}\"", startIdx) + "}\"".length();
-                String start = json.substring(0, startIdx);
-                String end = json.substring(endIdx);
-                rawConsumerActionJson = json.substring(startIdx, endIdx)
-                        .replaceAll("[\\\\]+\"", "\"")
-                        .replaceAll("\"\\{", "{")
-                        .replaceAll("\\}\"", "}");
-                json = start+rawConsumerActionJson+end;
-            }
-            json = json.replaceAll("[\\\\]+\"", "\"")
-                    .replaceAll("\"\\{", "{")
-                    .replaceAll("\\}\"", "}");
-            ConsumerActionsValue cav = localGson.fromJson(json, ConsumerActionsValue.class);
-            if(cav.getPayloadJson() != null){
-                cav.getPayloadJson().setRaw(rawConsumerActionJson);
-            }
-            return cav;
+
+
+//            if(json == null || json.isEmpty()){
+//                return null;
+//            }
+//            int startIdx = json.indexOf("\"{");
+//            String rawConsumerActionJson = null;
+//            if(startIdx >= 0){
+//                String start = json.substring(0, startIdx);
+//
+//                startIdx += "\"{".length();
+//                int endIdx = json.lastIndexOf("}\"");
+//
+//                String end = json.substring(endIdx+"}\"".length());
+//                rawConsumerActionJson = "{"+json.substring(startIdx, endIdx).replace("\\", "")+"}";
+//                json = start+rawConsumerActionJson+end;
+//            }
+//            ConsumerActionsValue cav = localGson.fromJson(json, ConsumerActionsValue.class);
+//            if(cav.getPayloadJson() != null){
+//                cav.getPayloadJson().setRaw(rawConsumerActionJson);
+//            }
+//            return cav;
         }
 
         else if(type.equals(ConsumerKey.class)){
