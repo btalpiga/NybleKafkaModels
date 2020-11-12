@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6cd5b7e-e9c1-4d7a-b481-edfc40207331" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nyble/topics/consumerActions/ConsumerActionDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nyble/facades/kafkaConsumer/KafkaConsumerFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nyble/facades/kafkaConsumer/KafkaConsumerPollLoopThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nyble/facades/kafkaConsumer/RecordProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nyble/topics/TopicObjectsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nyble/topics/TopicObjectsFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestSerializeDeserialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestSerializeDeserialize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/NybleKafkaModels-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/NybleKafkaModels-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,17 +36,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../connectors/ConsumerActionsSinkToTable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/nyble/facades/kafkaConsumer" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/nyble/facades/kafkaConsumer" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.nyble.topics.consumer" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in NybleKafkaModels">
+  <component name="RunManager" selected="Maven.install">
     <configuration name="All in NybleKafkaModels" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NybleKafkaModels" />
       <option name="PACKAGE_NAME" value="" />
@@ -180,12 +186,22 @@
       <option name="project" value="LOCAL" />
       <updated>1604311474140</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ConsumerActionValue deserialization fixing">
+      <created>1604417918190</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604417918190</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="-" />
-    <option name="LAST_COMMIT_MESSAGE" value="-" />
+    <MESSAGE value="ConsumerActionValue deserialization fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="ConsumerActionValue deserialization fixing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="833" y="214" width="847" height="677" key="#Project_Structure" timestamp="1597931018489">
@@ -211,10 +227,10 @@
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
     <state x="432" y="263" key="#xdebugger.evaluate/67.27.3773.1053@67.27.3773.1053" timestamp="1604417123887" />
-    <state x="1738" y="183" width="1018" height="807" key="CommitChangelistDialog2" timestamp="1604311473930">
+    <state x="1738" y="183" width="1018" height="807" key="CommitChangelistDialog2" timestamp="1604417918096">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
-    <state x="1738" y="183" width="1018" height="807" key="CommitChangelistDialog2/67.27.3773.1053@67.27.3773.1053" timestamp="1604311473930" />
+    <state x="1738" y="183" width="1018" height="807" key="CommitChangelistDialog2/67.27.3773.1053@67.27.3773.1053" timestamp="1604417918096" />
     <state width="457" height="466" key="DebuggerActiveHint" timestamp="1604416569011">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
@@ -223,58 +239,58 @@
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
     <state x="868" y="289" width="424" height="484" key="FileChooserDialogImpl/67.27.3773.1053@67.27.3773.1053" timestamp="1604068837321" />
-    <state width="1520" height="226" key="GridCell.Tab.0.bottom" timestamp="1604417871476">
+    <state width="1520" height="226" key="GridCell.Tab.0.bottom" timestamp="1605172293247">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
     <state width="1520" height="226" key="GridCell.Tab.0.bottom/0.27.3600.1053@0.27.3600.1053" timestamp="1602421957950" />
     <state width="1396" height="214" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1600791962962" />
     <state width="1396" height="214" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.30.1680.1050@1680.0.1920.1080" timestamp="1598030793288" />
-    <state width="1520" height="226" key="GridCell.Tab.0.bottom/67.27.3773.1053@67.27.3773.1053" timestamp="1604417871476" />
+    <state width="1520" height="226" key="GridCell.Tab.0.bottom/67.27.3773.1053@67.27.3773.1053" timestamp="1605172293247" />
     <state width="1396" height="214" key="GridCell.Tab.0.bottom/67.27.5693.1053@67.27.5693.1053" timestamp="1600795571159" />
-    <state width="1520" height="226" key="GridCell.Tab.0.center" timestamp="1604417871476">
+    <state width="1520" height="226" key="GridCell.Tab.0.center" timestamp="1605172293243">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
     <state width="1520" height="226" key="GridCell.Tab.0.center/0.27.3600.1053@0.27.3600.1053" timestamp="1602421957947" />
     <state width="1396" height="214" key="GridCell.Tab.0.center/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1600791962961" />
     <state width="1396" height="214" key="GridCell.Tab.0.center/1680.0.1920.1080/0.30.1680.1050@1680.0.1920.1080" timestamp="1598030793288" />
-    <state width="1520" height="226" key="GridCell.Tab.0.center/67.27.3773.1053@67.27.3773.1053" timestamp="1604417871476" />
+    <state width="1520" height="226" key="GridCell.Tab.0.center/67.27.3773.1053@67.27.3773.1053" timestamp="1605172293243" />
     <state width="1396" height="214" key="GridCell.Tab.0.center/67.27.5693.1053@67.27.5693.1053" timestamp="1600795571157" />
-    <state width="1520" height="226" key="GridCell.Tab.0.left" timestamp="1604417871476">
+    <state width="1520" height="226" key="GridCell.Tab.0.left" timestamp="1605172293241">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
     <state width="1520" height="226" key="GridCell.Tab.0.left/0.27.3600.1053@0.27.3600.1053" timestamp="1602421957946" />
     <state width="1396" height="214" key="GridCell.Tab.0.left/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1600791962961" />
     <state width="1396" height="214" key="GridCell.Tab.0.left/1680.0.1920.1080/0.30.1680.1050@1680.0.1920.1080" timestamp="1598030793288" />
-    <state width="1520" height="226" key="GridCell.Tab.0.left/67.27.3773.1053@67.27.3773.1053" timestamp="1604417871476" />
+    <state width="1520" height="226" key="GridCell.Tab.0.left/67.27.3773.1053@67.27.3773.1053" timestamp="1605172293241" />
     <state width="1396" height="214" key="GridCell.Tab.0.left/67.27.5693.1053@67.27.5693.1053" timestamp="1600795571156" />
-    <state width="1520" height="226" key="GridCell.Tab.0.right" timestamp="1604417871476">
+    <state width="1520" height="226" key="GridCell.Tab.0.right" timestamp="1605172293245">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
     <state width="1520" height="226" key="GridCell.Tab.0.right/0.27.3600.1053@0.27.3600.1053" timestamp="1602421957949" />
     <state width="1396" height="214" key="GridCell.Tab.0.right/1680.0.1920.1080/0.30.1680.1050@0.30.1680.1050" timestamp="1600791962962" />
     <state width="1396" height="214" key="GridCell.Tab.0.right/1680.0.1920.1080/0.30.1680.1050@1680.0.1920.1080" timestamp="1598030793288" />
-    <state width="1520" height="226" key="GridCell.Tab.0.right/67.27.3773.1053@67.27.3773.1053" timestamp="1604417871476" />
+    <state width="1520" height="226" key="GridCell.Tab.0.right/67.27.3773.1053@67.27.3773.1053" timestamp="1605172293245" />
     <state width="1396" height="214" key="GridCell.Tab.0.right/67.27.5693.1053@67.27.5693.1053" timestamp="1600795571158" />
-    <state width="1520" height="281" key="GridCell.Tab.1.bottom" timestamp="1604417304496">
+    <state width="1520" height="281" key="GridCell.Tab.1.bottom" timestamp="1604418563436">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
-    <state width="1520" height="281" key="GridCell.Tab.1.bottom/67.27.3773.1053@67.27.3773.1053" timestamp="1604417304496" />
-    <state width="1520" height="281" key="GridCell.Tab.1.center" timestamp="1604417304496">
+    <state width="1520" height="281" key="GridCell.Tab.1.bottom/67.27.3773.1053@67.27.3773.1053" timestamp="1604418563436" />
+    <state width="1520" height="281" key="GridCell.Tab.1.center" timestamp="1604418563435">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
-    <state width="1520" height="281" key="GridCell.Tab.1.center/67.27.3773.1053@67.27.3773.1053" timestamp="1604417304496" />
-    <state width="1520" height="281" key="GridCell.Tab.1.left" timestamp="1604417304496">
+    <state width="1520" height="281" key="GridCell.Tab.1.center/67.27.3773.1053@67.27.3773.1053" timestamp="1604418563435" />
+    <state width="1520" height="281" key="GridCell.Tab.1.left" timestamp="1604418563434">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
-    <state width="1520" height="281" key="GridCell.Tab.1.left/67.27.3773.1053@67.27.3773.1053" timestamp="1604417304496" />
-    <state width="1520" height="281" key="GridCell.Tab.1.right" timestamp="1604417304496">
+    <state width="1520" height="281" key="GridCell.Tab.1.left/67.27.3773.1053@67.27.3773.1053" timestamp="1604418563434" />
+    <state width="1520" height="281" key="GridCell.Tab.1.right" timestamp="1604418563435">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
-    <state width="1520" height="281" key="GridCell.Tab.1.right/67.27.3773.1053@67.27.3773.1053" timestamp="1604417304496" />
-    <state x="872" y="338" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1604311517266">
+    <state width="1520" height="281" key="GridCell.Tab.1.right/67.27.3773.1053@67.27.3773.1053" timestamp="1604418563435" />
+    <state x="872" y="338" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1604417936010">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
-    <state x="872" y="338" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.3773.1053@67.27.3773.1053" timestamp="1604311517266" />
+    <state x="872" y="338" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.3773.1053@67.27.3773.1053" timestamp="1604417936010" />
     <state width="783" height="461" key="XDebugger.FullValuePopup" timestamp="1604414376225">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>

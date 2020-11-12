@@ -2,6 +2,7 @@ com/nyble/topics/consumer/ConsumerKey.class
 com/nyble/utils/StringConverter.class
 com/nyble/models/consumer/CAttribute.class
 com/nyble/models/consumer/ConsumerDeserializer.class
+com/nyble/facades/kafkaConsumer/RecordProcessor.class
 com/nyble/topics/consumerActions/ConsumerActionsValue.class
 com/nyble/managers/ProducerManager.class
 com/nyble/utils/StringUtils.class
@@ -21,7 +22,12 @@ com/nyble/streams/types/SystemConsumerBrand.class
 com/nyble/topics/consumerActions/ConsumerActionsKey.class
 com/nyble/topics/consumerActions/ConsumerActionsValue$ConsumerActionsPayload$Value.class
 com/nyble/topics/consumerAttributes/ConsumerAttributesKey.class
+com/nyble/facades/kafkaConsumer/KafkaConsumerFacade.class
+com/nyble/facades/kafkaConsumer/KafkaConsumerPollLoopThread.class
 com/nyble/topics/consumerAttributes/ConsumerAttributesValue.class
+com/nyble/topics/consumerActions/ConsumerActionSerializer.class
 com/nyble/topics/consumer/ChangedProperty.class
 com/nyble/models/consumer/Consumer.class
+com/nyble/topics/TopicObjectsFactory$2.class
 com/nyble/streams/types/SubcampaignesValue.class
+com/nyble/topics/consumerActions/ConsumerActionDeserializer.class
