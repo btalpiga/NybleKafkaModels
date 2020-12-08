@@ -315,4 +315,10 @@ public class TestSerializeDeserialize  extends TestCase {
                 .fromJson(msg, Consumer.class);
         assertNull(deserialized);
     }
+
+    public void testConsumerActionValueDeserialize1(){
+        String value = "{\"id\":2474071,\"systemId\":2,\"consumerId\":28920,\"actionId\":3100,\"payloadJson\":\"{\\\"posId\\\": null, \\\"value\\\": {\\\"api_data\\\": {\\\"status\\\": \\\"9\\\", \\\"message\\\": \\\"Redirectionat\\\"}}, \\\"chanId\\\": \\\"12\\\", \\\"userId\\\": \\\"0\\\", \\\"prizeId\\\": null, \\\"valGain\\\": null, \\\"valSpend\\\": null, \\\"externalId\\\": \\\"0\\\", \\\"touchpointId\\\": \\\"12\\\", \\\"subcampaignId\\\": \\\"3\\\"}\",\"externalSystemDate\":\"1607333459531\",\"localSystemDate\":\"1607333470351\"}";
+        ConsumerActionsValue cav = (ConsumerActionsValue) TopicObjectsFactory.fromJson(value, ConsumerActionsValue.class);
+        System.out.println("Finish");
+    }
 }
