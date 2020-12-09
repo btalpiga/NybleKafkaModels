@@ -30,16 +30,19 @@ public class ConsumerActionDeserializer implements JsonDeserializer<ConsumerActi
                 getProperty(payloadJsonObject,"touchpointId"));
         payloadJson.setRaw(payloadJsonRaw);
 
-        JsonObject valueObject = payloadJsonObject.has("value") && !payloadJsonObject.get("value").isJsonNull() ?
-            payloadJsonObject.get("value").getAsJsonObject() : null;
-        if(valueObject != null){
+        JsonElement valueElement= payloadJsonObject.has("value") && !payloadJsonObject.get("value").isJsonNull() ?
+            payloadJsonObject.get("value") : null;
+
+        if(valueElement != null && valueElement.isJsonObject()){
+            JsonObject valueObject = valueElement.getAsJsonObject();
             ConsumerActionsValue.ConsumerActionsPayload.Value value = new ConsumerActionsValue.ConsumerActionsPayload.Value();
             value.sku_bought = getProperty(valueObject, "sku_bought");
-            value.new_value = getProperty(valueObject, "new_value");;
-            value.old_value = getProperty(valueObject, "old_value");;
-            value.sku_quantity = getProperty(valueObject, "sku_quantity");;
+            value.new_value = getProperty(valueObject, "new_value");
+            value.old_value = getProperty(valueObject, "old_value");
+            value.sku_quantity = getProperty(valueObject, "sku_quantity");
             payloadJson.setValue(value);
         }
+
 
         return new ConsumerActionsValue(id, actionId, consumerId, systemId, payloadJson,
                 externalSystemDate, localSystemDate);
