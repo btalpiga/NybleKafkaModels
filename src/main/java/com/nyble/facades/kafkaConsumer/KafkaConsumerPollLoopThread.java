@@ -15,6 +15,7 @@ public class KafkaConsumerPollLoopThread<K,V> extends Thread{
     private final Duration timeout;
     private final RecordProcessor<K,V> processor;
     private final int processingType;
+    private boolean notStopped = true;
 
     public KafkaConsumerPollLoopThread(KafkaConsumer<K,V> kafkaConsumer, Duration timeout,
                                        RecordProcessor<K, V> processor, int processingType){
@@ -27,7 +28,7 @@ public class KafkaConsumerPollLoopThread<K,V> extends Thread{
     public void run(){
         ConsumerRecords<K, V> records;
         try{
-            while((records = k.poll(timeout)) != null){
+            while((records = k.poll(timeout)) != null && notStopped){
                 if(processingType == KafkaConsumerFacade.PROCESSING_TYPE_SINGLE){
                     Map<TopicPartition, List<ConsumerRecord<K,V>>> processed = new HashMap<>();
                     for(ConsumerRecord<K, V> record: records){
@@ -82,6 +83,10 @@ public class KafkaConsumerPollLoopThread<K,V> extends Thread{
         }catch(Exception e){
             logger.error(e.getMessage(),e);
             logger.error("Thread {} is stopping...", this.getName());
+        }finally {
+            if(k != null){
+                k.close();
+            }
         }
 
     }
@@ -94,5 +99,9 @@ public class KafkaConsumerPollLoopThread<K,V> extends Thread{
             offsetsToCommit.put(partition, new OffsetAndMetadata(offset + 1));
         }
         consumer.commitSync(offsetsToCommit);
+    }
+
+    public void finish(){
+        this.notStopped = false;
     }
 }

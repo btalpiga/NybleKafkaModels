@@ -1,5 +1,7 @@
 package com.nyble.streams.types;
 
+import java.util.Objects;
+
 public class SubcampaignesValue {
     int systemId;
     String subcampaignId;
@@ -33,6 +35,21 @@ public class SubcampaignesValue {
 
     public void setBrandId(int brandId) {
         this.brandId = brandId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SubcampaignesValue)) return false;
+        SubcampaignesValue that = (SubcampaignesValue) o;
+        return systemId == that.systemId &&
+                brandId == that.brandId &&
+                subcampaignId.equals(that.subcampaignId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(systemId, subcampaignId, brandId);
     }
 }
 

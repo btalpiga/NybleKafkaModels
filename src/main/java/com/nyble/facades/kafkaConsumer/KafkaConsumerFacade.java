@@ -21,6 +21,7 @@ public class KafkaConsumerFacade<K, V> {
     private int consumersNumber;
     private int processingType;
     private List<KafkaConsumer<K, V>> consumers;
+    private List<KafkaConsumerPollLoopThread<K,V>> pollingLoops;
 
 
     public KafkaConsumerFacade(Properties p, int consumersNumber, int processingType){
@@ -52,15 +53,27 @@ public class KafkaConsumerFacade<K, V> {
     public void startPolling(Duration waitForAtLeastOneRecordTimeout, Class<? extends RecordProcessor<K,V>> processorClass){
         try {
             Constructor<? extends RecordProcessor<K,V>> ctor = processorClass.getConstructor();
+            pollingLoops = new ArrayList<>();
             for(KafkaConsumer<K, V> k : consumers){
                 RecordProcessor<K,V> processor = ctor.newInstance();
-                new KafkaConsumerPollLoopThread<>(k, waitForAtLeastOneRecordTimeout, processor, processingType)
-                        .start();
+                KafkaConsumerPollLoopThread<K,V> pollingLoop = new KafkaConsumerPollLoopThread<>(k,
+                        waitForAtLeastOneRecordTimeout, processor, processingType);
+                pollingLoops.add(pollingLoop);
+                pollingLoop.start();
             }
         } catch (NoSuchMethodException e) {
             throw new RuntimeException("No default constructor defined", e);
         } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
             throw new RuntimeException(e.getMessage(), e);
+        }
+    }
+
+    public void stopPolling() throws InterruptedException {
+        for(KafkaConsumerPollLoopThread<K,V> pollingLoop : pollingLoops){
+            pollingLoop.finish();
+        }
+        for(KafkaConsumerPollLoopThread<K,V> pollingLoop : pollingLoops){
+            pollingLoop.join(1000*5);
         }
     }
 }

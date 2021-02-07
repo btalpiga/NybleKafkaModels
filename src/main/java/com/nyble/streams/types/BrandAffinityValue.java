@@ -1,6 +1,8 @@
 package com.nyble.streams.types;
 
 
+import java.util.Objects;
+
 public class BrandAffinityValue {
     int systemId;
     int consumerId;
@@ -48,5 +50,21 @@ public class BrandAffinityValue {
 
     public void add(int actionScore) {
         deltaScore+=actionScore;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BrandAffinityValue)) return false;
+        BrandAffinityValue that = (BrandAffinityValue) o;
+        return systemId == that.systemId &&
+                consumerId == that.consumerId &&
+                brandId == that.brandId &&
+                deltaScore == that.deltaScore;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(systemId, consumerId, brandId, deltaScore);
     }
 }

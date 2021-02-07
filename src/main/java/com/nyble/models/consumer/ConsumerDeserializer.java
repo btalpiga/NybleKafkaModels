@@ -1,6 +1,7 @@
 package com.nyble.models.consumer;
 
 import com.google.gson.*;
+import com.google.gson.stream.JsonToken;
 
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -14,7 +15,12 @@ public class ConsumerDeserializer implements JsonDeserializer<Consumer> {
         for(Map.Entry<String, JsonElement> e: jsonObject.entrySet()){
             String attributeName = e.getKey();
             JsonObject cAttributeJson = e.getValue().getAsJsonObject();
-            CAttribute cAttribute = new CAttribute(cAttributeJson.get("value").getAsString(),
+            JsonElement value = cAttributeJson.get("value");
+            String valueStr = null;
+            if(value != null && !value.isJsonNull()){
+                valueStr = value.getAsString();
+            }
+            CAttribute cAttribute = new CAttribute(valueStr,
                     cAttributeJson.get("lut").getAsString());
             c.setProperty(attributeName, cAttribute);
         }
