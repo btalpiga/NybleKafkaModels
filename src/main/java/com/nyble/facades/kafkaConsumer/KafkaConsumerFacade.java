@@ -30,7 +30,9 @@ public class KafkaConsumerFacade<K, V> {
         this.props = p;
         this.props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         this.props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-        this.props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 1000*60*2);
+        if(!props.containsKey(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG)){
+            this.props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 1000*30);
+        }
         this.consumers = new ArrayList<>();
 
         for(int i=0; i<consumersNumber; i++){
